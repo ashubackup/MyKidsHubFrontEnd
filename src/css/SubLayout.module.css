@@ -1,0 +1,31 @@
+
+.main{
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: center; */
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    background: linear-gradient(to right,  #009fe31e,  #009fe339);
+  
+ }
+ .bg{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     min-height: 100dvh;
+  
+ }
+ .bg .image{
+     width: 100%;
+     height: auto;
+     object-fit: contain;
+ }
+ .white_line{
+     position: absolute;
+ }
+ 

@@ -1,0 +1,8 @@
+.top_logo_container{
+    padding: 1rem 1rem 1rem 1rem;
+}
+.top_logo_image{
+    width: 13rem;
+    height: 6rem;
+    object-fit: contain;
+}

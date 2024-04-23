@@ -1,0 +1,28 @@
+.container{
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    /* background-color: #fafafc; */
+}
+.sub_container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    /* width: 37rem; */
+    width: 37.5rem;
+    min-height: 100dvh;
+    background-color: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+@media screen and (max-width:380px){
+    .sub_container{
+        width: 100%;
+        border-radius: 0;
+    }
+}

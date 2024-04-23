@@ -1,0 +1,83 @@
+.container{
+    width: 100%;
+    min-height: 100dvh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image_container{
+    background-color: white;
+    width: 37rem;
+    min-height: 100dvh;
+    object-fit: fill;
+    position: relative;
+    background:url('../staticImages/Onboarding.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.logo_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10rem; */
+    position: absolute;
+    top: 20%;
+    z-index: 99;
+}
+
+.logo_container img{
+    width: 20rem;
+    height: auto;
+    object-fit: contain;
+}
+
+.green_line{
+    position: absolute;
+    top: -5rem;
+    width: 100%;
+    z-index: 1;
+}
+
+.cartoon_container{
+    /* margin-top: 10rem; */
+    z-index: 99;
+    /* margin-left: 10rem; */
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    transform: translateY(-70%);
+}
+.cartoon_container img{
+    width: 20rem;
+    height: auto;
+    object-fit: cover;
+}
+
+.blob_1{
+    z-index: 99;
+    position: absolute;
+    top: 80%;
+}
+
+.blob_2{
+    z-index: 99;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media screen and (min-height:720px){
+    .logo_container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-top: 10rem; */
+        position: absolute;
+        top: 30%;
+        z-index: 99;
+    }
+}

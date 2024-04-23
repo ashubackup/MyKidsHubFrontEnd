@@ -1,0 +1,111 @@
+.otp_description{
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 5rem 0 2rem;
+}
+.title{
+    font-size: 2.5rem;
+    color: #95C11F;
+    font-family: 'Inter',sans-serif;
+    font-weight: 900;
+}
+.text{
+    color: #172A6E;
+    font-size: 1.5rem;
+    font-family: 'Inter',sans-serif;
+    font-weight: 500;
+}
+.bold{
+    font-weight: 800;
+}
+
+.otp_input_container{
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gap{
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.input_box{
+    width: 6rem !important;
+    height: 5rem !important;
+    font-size: 1.5rem;
+    color: #172A6E;
+    background: transparent;
+    border: 0.15rem solid #172A6E;
+    border-radius: 1.5rem;
+    outline: none;
+    
+}
+
+.input_box:focus{
+    border: 0.15rem solid #95C11F;
+}
+
+.time_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.time_text{
+    color: #95C11F;
+    font-size: 1.5rem;
+    font-family: 'Inter',sans-serif;
+    font-weight: 500;
+}
+
+.btn_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    z-index: 99;
+}
+
+.confirm_btn{
+    margin-top: 3rem;
+    width: 27rem;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 2rem;
+    font-family: 'Inter',sans-serif;
+    font-weight: 900;
+    color: white;
+    background-color: rgb(1, 159, 227);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem rgba(0,0,0,0.3);
+    cursor: pointer;
+
+}
+
+.resend_btn{
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    font-family: 'Inter',sans-serif;
+    color: #172A6E;
+    font-weight: 500;
+    cursor: pointer;
+}
