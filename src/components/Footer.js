@@ -18,8 +18,10 @@ const Footer = ({active}) => {
         <div className={classes.tab} onClick={()=>navigateHandler("/profile")}>
           <i className={`fa-solid fa-user ${classes.icon} ${active==1 && classes.active}`}></i>
         </div>
-        <div className={classes.tab}>
-          <i className={`fa-solid fa-gear ${classes.icon} ${active==2 && classes.active}`}></i>
+        <div className={classes.tab} 
+        onClick={()=>navigateHandler("/menu")}
+        >
+          <i className={`fa-solid fa-bars ${classes.icon} ${active==2 && classes.active}`}></i>
         </div>
       </div>
     </div>

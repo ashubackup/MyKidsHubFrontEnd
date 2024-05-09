@@ -1,20 +1,21 @@
 .header{
     width: 100%;
     margin-top: -3rem;
+    z-index: 200;
 }
 .header_sub_container{
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-content: center;
-    background-color: #E5E5E5;
-    padding: 2rem 0 2rem 0;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* align-content: center; */
+    /* background-color: #E5E5E5; */
+    padding: 2rem 1rem 2rem 1rem;
 }
 .tab{
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 0.4rem;
 }
 .text{

@@ -6,7 +6,7 @@ const LoadingPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const timeout2 = setTimeout(() => {
-      navigate("/subscribe");
+      navigate("/login");
     }, 1500);
 
     return () => {

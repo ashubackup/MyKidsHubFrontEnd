@@ -5,10 +5,12 @@ import SubLayout from "../components/SubLayout";
 import TopLogo from "../components/TopLogo";
 import classes from "../css/Auth.module.css";
 import { useNavigate } from "react-router-dom";
+import { getCookie } from "../utils/helper";
 
 const AuthPage = () => {
   const navigate=useNavigate();
   const navigateHandler=()=>{
+    console.log("userId in age group",getCookie("userId"))
     navigate("/setAge");
   }
   return (

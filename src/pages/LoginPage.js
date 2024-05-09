@@ -9,6 +9,7 @@ import { loginApi } from "../http/http";
 import ModalInfo from "../components/ModalInfo";
 import Loader from "../components/Loader";
 import Cookies from "js-cookie";
+import { setCookie, setCookieUserId } from "../utils/helper";
 
 const LoginPage = () => {
   const [msisdn, setMsisdn] = useState("");
@@ -26,7 +27,7 @@ const LoginPage = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (msisdn.trim().length === 0) {
+    if (msisdn.trim().length == 0) {
       // toast.error("Input Fields cannot be empty!");
       localStorage.setItem("token",'token')
       Cookies.set("token", "token", { expires: 1 });
@@ -37,23 +38,25 @@ const LoginPage = () => {
         setLoading(true);
         const response = await loginApi({ ani: msisdn });
         console.log(response);
-        if (response?.data === 0) {
+        if (response?.data.response == 0) {
           // toast.error("You are not subscribed!");
           setModal(true);
           setModalInfo("You are not subscribed!");
           setSubscribeBtn(true);
-        } else if (response?.data === 2) {
+        } else if (response?.data.response == 2) {
           // toast.error("Billing Pending");
           setModal(true);
           setModalInfo("Billing Failed!");
           // navigate("/otp", { state: { msisdn: msisdn, pack: null } });
-        } else if (response?.data === 1) {
+        } else if (response?.data.response == 1) {
+          // console.log("iside otp");
+          setCookieUserId(response?.data.userId);
           navigate("/otp", { state: { msisdn: msisdn, pack: null } });
         }
         setLoading(false);
       } catch (error) 
       {
-        console.log(error);
+        // console.log(error);
         setLoading(false);
         toast.error(
           error?.response?.data?.message ||

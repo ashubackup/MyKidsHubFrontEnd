@@ -14,3 +14,10 @@ export function getCookie(name){
     const value=Cookies.get(name.toString());
     return value;
 }
+
+
+export function setCookieUserId(msisdn) {
+  Cookies.set("userId", msisdn, {
+    expires: 1,
+  });
+}

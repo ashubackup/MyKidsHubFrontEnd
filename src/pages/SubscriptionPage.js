@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { priceApi, subscribeApi } from "../http/http";
 import ModalInfo from "../components/ModalInfo";
 import Loader from "../components/Loader";
+import { setCookie, setCookieUserId } from "../utils/helper";
 
 const SubscriptionPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -66,25 +67,31 @@ const SubscriptionPage = () => {
           ani: msisdn,
           pack: selectedOption?.value,
         });
-        console.log(response);
-        if (response?.data === 1) {
+        console.log("res insub,",response?.data);
+        if (response?.data.response == 1) {
           // toast.error("Billing Pending");
           setModal(true);
           setModalInfo("Billing Pending!");
           return;
-        } else if (response?.data === 2) {
+        } else if (response?.data.response == 2) {
+          setCookieUserId(response?.data.userId);
           setTimeout(() => {
+           
             navigate("/otp", {
               state: { msisdn: msisdn, pack: selectedOption },
             });
           }, 1000);
-        } else if (response?.data === 0) {
+        } else if (response?.data.response == 0) {
           // toast.error("Billing Pending");
           setModal(true);
           setModalInfo("Billing Pending!");
           return;
-        } else if (response?.data === 3) {
+        } else if (response?.data.response == 3) {
+
+          setCookieUserId(response?.data.userId);
           setTimeout(() => {
+            console.log("userId",response.data.response);
+            
             navigate("/otp", {
               state: { msisdn: msisdn, pack: selectedOption },
             });
@@ -98,7 +105,6 @@ const SubscriptionPage = () => {
         setSubscribeLoading(false);
       } catch (error) {
         setSubscribeLoading(false);
-        console.log(error);
         toast.error(
           error?.response?.data?.message ||
             error?.data?.message ||

@@ -1,0 +1,9 @@
+.style{
+    width: 100% !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 15px !important;
+    overflow: visible;
+}

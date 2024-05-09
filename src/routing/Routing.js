@@ -11,6 +11,7 @@ import CategoryPage from "../pages/CategoryPage";
 import LoadingPage from "../pages/LoadingPage";
 import ProfilePage from "../pages/ProfilePage";
 import Auth from "../auth/Auth";
+import MenuPage from "../pages/MenuPage";
 
 const Routing = () => {
   const router = createBrowserRouter([
@@ -71,6 +72,14 @@ const Routing = () => {
       element: (
         <Auth>
           <ProfilePage />
+        </Auth>
+      ),
+    },
+    {
+      path: "/menu",
+      element: (
+        <Auth>
+          <MenuPage />
         </Auth>
       ),
     },

@@ -1,9 +1,17 @@
 .footer_container{
     width: 100%;
     padding: 0 2.5rem 1rem 2.5rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
 }
 .footer_sub_container{
-    width: 100%;
+    width: 300px;
     display: grid;
     align-content: center;
     grid-template-columns: 1fr 1fr 1fr;

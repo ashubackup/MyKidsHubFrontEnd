@@ -23,3 +23,17 @@ input[type=number] {
 button{
   cursor: pointer;
 }
+
+table{
+  border: none !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+td{
+  width: 155.45pt !important;
+  border: 1pt solid black !important;
+  padding: 0cm 5.4pt !important;
+  height: 15pt !important;
+  vertical-align: bottom !important;
+}

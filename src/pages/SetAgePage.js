@@ -11,23 +11,68 @@ import { getCookie } from "../utils/helper";
 
 const SetAgePage = () => {
   const [loading, setLoading] = useState(true);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const images = [
+  //     "../staticImages/parent_bg1.jpg",
+  //     "../staticImages/parent_bg2.jpg",
+  //     "../staticImages/parent_bg3.jpg",
+  //   ];
+  //   let loadedImages = 0;
+
+  //   const loadImage = (imagePath) => {
+  //     const tempImage = new Image();
+  //     tempImage.onload = () => {
+  //       loadedImages++;
+  //       if (loadedImages === images.length) {
+  //         setLoading(false);
+  //       }
+  //     };
+  //     tempImage.src = imagePath;
+  //   };
+
+  //   images.forEach((image) => {
+  //     loadImage(image);
+  //   });
+  // }, []);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
   }, []);
-  const navigateHandler=(age)=>{
-    const msisdn=getCookie("msisdn");
-    if(!msisdn){
+  const navigateHandler = (age) => {
+    const msisdn = getCookie("userId");
+    console.log("smsi",msisdn);
+    if (!msisdn) {
       navigate("/login");
-    }
-    else{
+    } else {
+      // // navigate(`/https://games.itslearnable.co/?msisdn=${msisdn}&age=${age}`);
+      // window.location.href = `https://kids.itslearnable.co/?userId=${msisdn}&age=${age}`;
+      // Create a form element
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://kids.itslearnable.co'; // Target URL
 
-      // navigate(`/https://games.itslearnable.co/?msisdn=${msisdn}&age=${age}`);
-      window.location.href=`https://games.itslearnable.co/?msisdn=${msisdn}&age=${age}`;
+      // Add hidden input fields for userId and age
+      const userIdInput = document.createElement('input');
+      userIdInput.type = 'hidden';
+      userIdInput.name = 'userId';
+      userIdInput.value = msisdn;
+      form.appendChild(userIdInput);
+
+      const ageInput = document.createElement('input');
+      ageInput.type = 'hidden';
+      ageInput.name = 'age';
+      ageInput.value = age;
+      form.appendChild(ageInput);
+
+      // Append the form to the document body and submit it
+      document.body.appendChild(form);
+      form.submit();
     }
-  }
+  };
   return (
     <>
       {loading ? (
@@ -44,7 +89,10 @@ const SetAgePage = () => {
               </p>
             </div>
             <div className={classes.main_container}>
-              <div className={classes.card_1} onClick={()=>navigateHandler(1)}>
+              <div
+                className={classes.card_1}
+                onClick={() => navigateHandler(1)}
+              >
                 <div className={classes.play_btn}>
                   <i className={`fa-solid fa-play ${classes.icon}`}></i>
                 </div>
@@ -54,7 +102,10 @@ const SetAgePage = () => {
                 </div>
               </div>
 
-              <div className={classes.card_2} onClick={()=>navigateHandler(2)}>
+              <div
+                className={classes.card_2}
+                onClick={() => navigateHandler(2)}
+              >
                 <div className={classes.play_btn}>
                   <i className={`fa-solid fa-play ${classes.icon}`}></i>
                 </div>
@@ -64,7 +115,10 @@ const SetAgePage = () => {
                 </div>
               </div>
 
-              <div className={classes.card_3} onClick={()=>navigateHandler(3)}>
+              <div
+                className={classes.card_3}
+                onClick={() => navigateHandler(3)}
+              >
                 <div className={classes.play_btn}>
                   <i className={`fa-solid fa-lock ${classes.icon}`}></i>
                 </div>
@@ -75,8 +129,7 @@ const SetAgePage = () => {
               </div>
             </div>
 
-            <Footer active={0}/>
-            
+            <Footer active={0} />
           </SubLayout>
         </Layout>
       )}

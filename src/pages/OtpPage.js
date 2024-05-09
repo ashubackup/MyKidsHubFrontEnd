@@ -7,7 +7,7 @@ import OTPInput from "react-otp-input";
 import TopLogo from "../components/TopLogo";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { setCookie } from "../utils/helper";
+import { getCookie, setCookie, setCookieUserId } from "../utils/helper";
 import { loginApi, matchOtpApi } from "../http/http";
 import ModalInfo from "../components/ModalInfo";
 import Loader from "../components/Loader";
@@ -37,12 +37,13 @@ const OtpPage = () => {
       navigate("/login");
       return;
     }
-    console.log(location.state);
+    // console.log(location.state);
     setMsisdn(number);
     setPack(packSelected);
   }, [location.state]);
 
   useEffect(() => {
+    console.log(msisdn,'ms')
     if (msisdn) {
       if (timer <= 0 || !msisdn) {
         navigate("/login");
@@ -72,22 +73,24 @@ const OtpPage = () => {
           setLoading(true);
           const response = await matchOtpApi({ ani: msisdn, otp: otp });
           console.log(response, "response");
-          if (response?.data === 0) {
+          if (response?.data.result == 0) {
             // toast.error("Wrong Otp");
             setLoading(false);
 
             setModal(true);
             setModalInfo("Wrong OTP");
             return;
-          } else if (response?.data === 1) {
+          } else if (response?.data.result == 1) {
             setLoading(false);
-
+            console.log("cookue",getCookie("userId"));
+            setCookie(msisdn)
+            setCookieUserId(response.data.userId);
             setTimeout(() => {
               setOTP("");
-              setCookie(msisdn);
+             
               navigate("/auth");
             }, 3000);
-          } else if (response?.data === 2) {
+          } else if (response?.data.result == 2) {
             // toast.error("OTP Expired");
             setLoading(false);
 
@@ -98,7 +101,7 @@ const OtpPage = () => {
               navigate("/login");
             }, 3000);
             return;
-          } else if (response?.data === 3) {
+          } else if (response?.data.result == 3) {
             // toast.error("Billing Failed!");
             setLoading(false);
 
@@ -115,7 +118,7 @@ const OtpPage = () => {
           }
         } catch (error) {
           setLoading(false);
-          console.log(error, "error");
+          // console.log(error, "error");
           toast.error(
             error?.response?.data?.message ||
               error?.data?.message ||
@@ -135,18 +138,18 @@ const OtpPage = () => {
   const resendHandler = async () => {
     try {
       const response = await loginApi({ ani: msisdn });
-      if (response?.data === 0) {
+      if (response?.data.response == 0) {
         toast.error("You are not subscribed!");
         navigate("/login");
-      } else if (response?.data === 2) {
+      } else if (response?.data.response == 2) {
         toast.error("Billing Pending");
         navigate("/login");
-      } else if (response?.data === 1) {
+      } else if (response?.data.response == 1) {
         setResend(true);
         // navigate("/otp", { state: { msisdn: msisdn, pack: null } });
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(
         error?.response?.data?.message ||
           error?.data?.message ||
