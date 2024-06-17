@@ -142,7 +142,7 @@ const OtpPage = () => {
         toast.error("You are not subscribed!");
         navigate("/login");
       } else if (response?.data.response == 2) {
-        toast.error("Billing Pending");
+        toast.error("Oops, you have insufficient balance !!");
         navigate("/login");
       } else if (response?.data.response == 1) {
         setResend(true);
@@ -168,7 +168,7 @@ const OtpPage = () => {
           <h2 className={classes.title}>OTP Verification</h2>
           <p className={classes.text}>
             We have sent the send {resend && "another"} one time pin to
-            <span className={classes.bold}> +236{msisdn} </span>
+            <span className={classes.bold}> +263{msisdn} </span>
             via SMS.
           </p>
         </div>

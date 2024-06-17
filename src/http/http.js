@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = `http://91.205.172.123:7512`;
+// const BASE_URL = `http://91.205.172.123:7512`;
 // const BASE_URL=`http://localhost:7512`;
+const BASE_URL=`https://www.backend.learnablekids.com`;
 
 export async function loginApi(data) {
   const response = await axios.post(`${BASE_URL}/loginUser`, data);

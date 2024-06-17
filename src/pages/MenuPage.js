@@ -110,7 +110,8 @@ const MenuPage = () => {
               discovery and growth together with your child.
             </p>
           </div>
-        </div>
+          </div>
+        {/* 
 
         <div className={classes.accordian} onClick={handleTermsClick}>
           <div className={classes.accordian_nav}>
@@ -140,9 +141,9 @@ const MenuPage = () => {
           >
             <ParseHTML html={terms} />
           </div>
-        </div>
+        </div> */}
 
-        <div
+        {/* <div
           className={`${classes.accordian} ${classes.accordian_last}`}
           onClick={handleQuestionsClick}
         >
@@ -173,7 +174,7 @@ const MenuPage = () => {
           >
             <ParseHTML html={questions} />
           </div>
-        </div>
+        </div> */}
 
         <Footer active={2} />
       </SubLayout>

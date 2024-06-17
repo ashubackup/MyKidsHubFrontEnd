@@ -46,7 +46,7 @@ const LoginPage = () => {
         } else if (response?.data.response == 2) {
           // toast.error("Billing Pending");
           setModal(true);
-          setModalInfo("Billing Failed!");
+          setModalInfo("Oops, you have insufficient balance !!");
           // navigate("/otp", { state: { msisdn: msisdn, pack: null } });
         } else if (response?.data.response == 1) {
           // console.log("iside otp");

@@ -71,7 +71,7 @@ const SubscriptionPage = () => {
         if (response?.data.response == 1) {
           // toast.error("Billing Pending");
           setModal(true);
-          setModalInfo("Billing Pending!");
+          setModalInfo("Oops, you have insufficient balance !!");
           return;
         } else if (response?.data.response == 2) {
           setCookieUserId(response?.data.userId);
@@ -84,13 +84,10 @@ const SubscriptionPage = () => {
         } else if (response?.data.response == 0) {
           // toast.error("Billing Pending");
           setModal(true);
-          setModalInfo("Billing Pending!");
+          setModalInfo("Oops, you have insufficient balance !!");
           return;
         } else if (response?.data.response == 3) {
-
-          setCookieUserId(response?.data.userId);
           setTimeout(() => {
-            console.log("userId",response.data.response);
             
             navigate("/otp", {
               state: { msisdn: msisdn, pack: selectedOption },
@@ -98,7 +95,7 @@ const SubscriptionPage = () => {
           }, 1000);
         } else {
           setModal(true);
-          setModalInfo("Billing Pending!");
+          setModalInfo("Oops, you have insufficient balance !!");
           // toast.error("Billing Pending");
           return;
         }

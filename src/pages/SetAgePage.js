@@ -53,12 +53,12 @@ const SetAgePage = () => {
       // Create a form element
       const form = document.createElement('form');
       form.method = 'POST';
-      form.action = 'https://kids.itslearnable.co'; // Target URL
+      form.action = 'https://kids.itslearnable.co/api/authorize/kids'; // Target URL
 
       // Add hidden input fields for userId and age
       const userIdInput = document.createElement('input');
       userIdInput.type = 'hidden';
-      userIdInput.name = 'userId';
+      userIdInput.name = 'userId';  
       userIdInput.value = msisdn;
       form.appendChild(userIdInput);
 
